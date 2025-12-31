@@ -1,10 +1,15 @@
 def find_station(stations, name):
 
-    for station_name in range(len(stations)):
-        if station_name == name:
-            return name
-        
-    pass
-
+    for i in range(len(stations)):
+        if stations[i] == name:
+            return i
+    return None
+    
 def count_stops(stations, start, stop):
-    pass
+    start_count = find_station(stations, start)
+    stop_count = find_stations(stations, stop)
+    count = 0
+
+
+
+
