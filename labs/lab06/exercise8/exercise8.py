@@ -16,9 +16,9 @@ def analyze_scores(score_records):
     all_scores = []
     
     for student_id, score in score_records:
-        all_scores.append(student_id)
+        all_scores.append(score)
     
-    highest = min(all_scores)
+    highest = max(all_scores)
     
     average = sum(all_scores) / len(score_records)
     

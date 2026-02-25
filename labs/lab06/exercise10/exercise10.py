@@ -1,5 +1,10 @@
 def get_unique_attendees(attendance_logs):
     """Extract set of all unique attendee IDs."""
+    all_attendess = set()
+    
+    for att_id, event_name in attendance_logs:
+        if attd_id == attendee_id and event_name not in events_attended:
+            events
     pass
 
 def count_unique_events(attendance_logs, attendee_id):
