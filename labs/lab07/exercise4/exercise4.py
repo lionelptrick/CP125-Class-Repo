@@ -1,5 +1,16 @@
 def apply_upgrade(current, upgrade):
     # TODO: Your code here
+    result = current.copy()
+
+    for permission in upgrade:
+        if permission in result:
+            if upgrade[permission] > result[permission]:
+                result[permission] = upgrade[permission]
+
+        else:
+            result[permission] = upgrade[permission]
+    
+    return result
     pass
 
 
