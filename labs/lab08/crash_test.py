@@ -7,9 +7,9 @@ import os
 # f = open("data/missing.txt", "r")  # FileNotFoundError!
 
 # Mistake 2: Wrong mode destroys data
-# f = open("data/scores.txt", "w")  # Overwrites everything!
-# f.write("100\n")
-# f.close()
+ f = open("data/scores.txt", "w")  # Overwrites everything!
+ f.write("100\n")
+ f.close()
 
 # Mistake 3: Missing \n causes lines to merge
 # f = open("data/test.txt", "w")

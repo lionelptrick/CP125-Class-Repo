@@ -14,7 +14,7 @@ def calculate_order_total(products_file, order_file, output_file):
         float: grand total of all orders
     """
     # TODO: Implement this function
-    pass
+    
 
 
 # Test your code here
