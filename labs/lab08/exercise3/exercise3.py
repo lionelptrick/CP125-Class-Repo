@@ -1,5 +1,6 @@
 # Lab 08 Exercise 3: Product Price Lookup
 # Write your code below:
+import csv
 
 def calculate_order_total(products_file, order_file, output_file):
     """
@@ -13,7 +14,32 @@ def calculate_order_total(products_file, order_file, output_file):
     Returns:
         float: grand total of all orders
     """
-    # TODO: Implement this function
+    # TODO: Implement this function.
+    price_dictionary = {}
+
+    products = open(products_file, 'r', newline='')
+    orders = open(order_file, 'r', newline='')
+    totalcost = open(output_file, 'w', newline='')
+
+    product_reader = csv.reader(products)
+    for row in product_reader:
+        product_reader[row['product_id']] =  float(row['price'])
+
+    orders_reader = csv.reader(orders)
+    for row in orders_reader:
+        product_id = row['product_id']
+        quantity = int(row['quantity'])
+
+        total = price_dictionary[product_id] * quantity
+        grand_total += total
+
+    writer = csv.writer(totalcost)
+    writer.writerow(['product_id', 'total_cost'])
+
+    for 
+
+
+
     pass
 
 
