@@ -22,27 +22,39 @@ def calculate_order_total(products_file, order_file, output_file):
     totalcost = open(output_file, 'w', newline='')
 
     product_reader = csv.reader(products)
+    next(product_reader)
+
     for row in product_reader:
-        product_reader[row['product_id']] =  float(row['price'])
-
-    orders_reader = csv.reader(orders)
-    for row in orders_reader:
-        product_id = row['product_id']
-        quantity = int(row['quantity'])
-
-        total = price_dictionary[product_id] * quantity
-        grand_total += total
+        product_id = row[0]
+        price = float(row[2]) 
+        price_dictionary[product_id] = price
 
     writer = csv.writer(totalcost)
     writer.writerow(['product_id', 'total_cost'])
 
-    for 
+    orders_reader = csv.reader(orders)
+    next(orders_reader)
 
+    grand_total = 0
 
+    for row in orders_reader:
+        product_id = row[0]
+        quantity = int(row[1])
+
+        total = price_dictionary[product_id] * quantity
+        grand_total += total
+
+        writer.writerow([product_id, f"{total:.2f}"])
+
+    products.close()
+    orders.close()
+    totalcost.close()
+
+    return grand_total
 
     pass
 
 
 # Test your code here
-result = calculate_order_total("data/products.csv", "data/order.csv", "data/total.csv")
+result = calculate_order_total("labs/lab08/exercise3/data/products.csv", "labs/lab08/exercise3/data/order.csv", "labs/lab08/exercise3/data/total.csv")
 print(f"Grand total: ${result:.2f}")
